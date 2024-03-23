@@ -2,7 +2,7 @@
 //  ApiUrls.swift
 //  RickAndMortyApp
 //
-//  Created by REDGE on 18/03/2024.
+//  Created by Roman on 18/03/2024.
 //
 
 import Foundation

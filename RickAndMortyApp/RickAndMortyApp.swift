@@ -2,7 +2,7 @@
 //  RickAndMortyAppApp.swift
 //  RickAndMortyApp
 //
-//  Created by REDGE on 17/03/2024.
+//  Created by Roman on 17/03/2024.
 //
 
 import SwiftUI
