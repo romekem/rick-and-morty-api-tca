@@ -1,5 +1,5 @@
 //
-//  CharacterDetailsReducer.swift
+//  CharacterDetailsFeature.swift
 //  RickAndMortyApp
 //
 //  Created by Roman on 17/03/2024.
@@ -9,14 +9,14 @@ import Foundation
 import ComposableArchitecture
 
 @Reducer
-struct CharacterDetailsReducer {
+struct CharacterDetailsFeature {
     @ObservableState
     struct State: Equatable {
-        static func == (lhs: CharacterDetailsReducer.State, rhs: CharacterDetailsReducer.State) -> Bool {
+        static func == (lhs: CharacterDetailsFeature.State, rhs: CharacterDetailsFeature.State) -> Bool {
             lhs.character.name == rhs.character.name
         }
         
-        @Presents var episodeDetails: EpisodeDetailsReducer.State?
+        @Presents var episodeDetails: EpisodeDetailsFeature.State?
         var character: Character
         var episodes: [Int] = []
         
@@ -28,10 +28,10 @@ struct CharacterDetailsReducer {
     enum Action {
         case prepareEpisodes
         case showEpisodeButtonTapped(Int)
-        case episodeDetails(PresentationAction<EpisodeDetailsReducer.Action>)
+        case episodeDetails(PresentationAction<EpisodeDetailsFeature.Action>)
     }
     
-    var body: some ReducerOf<CharacterDetailsReducer> {
+    var body: some ReducerOf<CharacterDetailsFeature> {
         Reduce { state, action in
             switch action {
             case .prepareEpisodes:
@@ -43,14 +43,14 @@ struct CharacterDetailsReducer {
                 state.episodes = numbers
                 return .none
             case let .showEpisodeButtonTapped(episodeNumber):
-                state.episodeDetails = EpisodeDetailsReducer.State(episodeNumber: episodeNumber)
+                state.episodeDetails = EpisodeDetailsFeature.State(episodeNumber: episodeNumber)
                 return .none
             case .episodeDetails:
                 return .none
             }
         }
         .ifLet(\.$episodeDetails, action: \.episodeDetails) {
-            EpisodeDetailsReducer()
+            EpisodeDetailsFeature()
         }
     }
 }

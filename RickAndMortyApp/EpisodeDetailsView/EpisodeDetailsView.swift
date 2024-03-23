@@ -13,7 +13,7 @@ struct EpisodeDetailsView: View {
         static let spacing: CGFloat = 10
     }
 
-    @Bindable var store: StoreOf<EpisodeDetailsReducer>
+    @Bindable var store: StoreOf<EpisodeDetailsFeature>
 
     var body: some View {
         NavigationStack {

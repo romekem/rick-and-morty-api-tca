@@ -9,7 +9,7 @@ import Foundation
 import ComposableArchitecture
 
 @Reducer
-struct EpisodeDetailsReducer {
+struct EpisodeDetailsFeature {
     @Dependency(\.apiClient) var apiClient
 
     @ObservableState
@@ -30,7 +30,7 @@ struct EpisodeDetailsReducer {
         case charactersFetched([Character])
     }
 
-    var body: some ReducerOf<EpisodeDetailsReducer> {
+    var body: some ReducerOf<EpisodeDetailsFeature> {
         Reduce { state, action in
             switch action {
             case .fetchEpisode:

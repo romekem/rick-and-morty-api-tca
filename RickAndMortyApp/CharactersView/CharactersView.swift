@@ -14,10 +14,10 @@ struct CharactersView: View {
         static let imageSize: CGFloat = 80
     }
 
-    let store: StoreOf<CharactersReducer>
-    @ObservedObject private var viewStore: ViewStoreOf<CharactersReducer>
+    let store: StoreOf<CharactersFeature>
+    @ObservedObject private var viewStore: ViewStoreOf<CharactersFeature>
 
-    init(store: StoreOf<CharactersReducer>) {
+    init(store: StoreOf<CharactersFeature>) {
          self.store = store
         self.viewStore = ViewStore(store, observe: { $0 })
     }
@@ -26,7 +26,7 @@ struct CharactersView: View {
         NavigationStackStore(store.scope(state: \.path, action: \.path)) {
             List {
                 ForEach(viewStore.characters, id: \.id) { character in
-                    NavigationLink(state: CharacterDetailsReducer.State(character: character)) {
+                    NavigationLink(state: CharacterDetailsFeature.State(character: character)) {
                         HStack {
                             LazyImage(url: URL(string: character.image)) { state in
                                 if let image = state.image {

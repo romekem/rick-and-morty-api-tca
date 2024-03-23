@@ -13,8 +13,8 @@ struct RickAndMortyApp: App {
 
     var body: some Scene {
         WindowGroup {
-            CharactersView(store: .init(initialState: CharactersReducer.State(), reducer: {
-                CharactersReducer()
+            CharactersView(store: .init(initialState: CharactersFeature.State(), reducer: {
+                CharactersFeature()
             }))
         }
     }

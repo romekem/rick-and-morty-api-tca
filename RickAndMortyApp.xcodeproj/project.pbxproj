@@ -15,13 +15,13 @@
 		DED258AD2BA7565E00F7064F /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED258AC2BA7565E00F7064F /* Episode.swift */; };
 		DED258B02BA75F5400F7064F /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED258AF2BA75F5400F7064F /* ApiClient.swift */; };
 		DED258B32BA7690B00F7064F /* CharactersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED258B22BA7690B00F7064F /* CharactersView.swift */; };
-		DED258B52BA7691800F7064F /* CharactersReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED258B42BA7691800F7064F /* CharactersReducer.swift */; };
+		DED258B52BA7691800F7064F /* CharactersFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED258B42BA7691800F7064F /* CharactersFeature.swift */; };
 		DED258BE2BA77A9100F7064F /* CharacterDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED258BD2BA77A9100F7064F /* CharacterDetailsView.swift */; };
-		DED258C02BA77A9C00F7064F /* CharacterDetailsReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED258BF2BA77A9C00F7064F /* CharacterDetailsReducer.swift */; };
+		DED258C02BA77A9C00F7064F /* CharacterDetailsFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED258BF2BA77A9C00F7064F /* CharacterDetailsFeature.swift */; };
 		DED258C22BA78B6A00F7064F /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = DED258C12BA78B6A00F7064F /* Nuke */; };
 		DED258C42BA78B6A00F7064F /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = DED258C32BA78B6A00F7064F /* NukeUI */; };
 		DED258C62BA78E0300F7064F /* EpisodeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED258C52BA78E0300F7064F /* EpisodeDetailsView.swift */; };
-		DED258C82BA78E1600F7064F /* EpisodeDetailsReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED258C72BA78E1600F7064F /* EpisodeDetailsReducer.swift */; };
+		DED258C82BA78E1600F7064F /* EpisodeDetailsFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED258C72BA78E1600F7064F /* EpisodeDetailsFeature.swift */; };
 		DED258CD2BA8B50900F7064F /* ApiUrls.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED258CC2BA8B50900F7064F /* ApiUrls.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,11 +35,11 @@
 		DED258AC2BA7565E00F7064F /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 		DED258AF2BA75F5400F7064F /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		DED258B22BA7690B00F7064F /* CharactersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersView.swift; sourceTree = "<group>"; };
-		DED258B42BA7691800F7064F /* CharactersReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersReducer.swift; sourceTree = "<group>"; };
+		DED258B42BA7691800F7064F /* CharactersFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersFeature.swift; sourceTree = "<group>"; };
 		DED258BD2BA77A9100F7064F /* CharacterDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsView.swift; sourceTree = "<group>"; };
-		DED258BF2BA77A9C00F7064F /* CharacterDetailsReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsReducer.swift; sourceTree = "<group>"; };
+		DED258BF2BA77A9C00F7064F /* CharacterDetailsFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsFeature.swift; sourceTree = "<group>"; };
 		DED258C52BA78E0300F7064F /* EpisodeDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailsView.swift; sourceTree = "<group>"; };
-		DED258C72BA78E1600F7064F /* EpisodeDetailsReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailsReducer.swift; sourceTree = "<group>"; };
+		DED258C72BA78E1600F7064F /* EpisodeDetailsFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailsFeature.swift; sourceTree = "<group>"; };
 		DED258CC2BA8B50900F7064F /* ApiUrls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiUrls.swift; sourceTree = "<group>"; };
 		DED258CE2BA8C51600F7064F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -137,7 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				DED258B22BA7690B00F7064F /* CharactersView.swift */,
-				DED258B42BA7691800F7064F /* CharactersReducer.swift */,
+				DED258B42BA7691800F7064F /* CharactersFeature.swift */,
 			);
 			path = CharactersView;
 			sourceTree = "<group>";
@@ -146,7 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				DED258BD2BA77A9100F7064F /* CharacterDetailsView.swift */,
-				DED258BF2BA77A9C00F7064F /* CharacterDetailsReducer.swift */,
+				DED258BF2BA77A9C00F7064F /* CharacterDetailsFeature.swift */,
 			);
 			path = CharacterDetailsView;
 			sourceTree = "<group>";
@@ -155,7 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				DED258C52BA78E0300F7064F /* EpisodeDetailsView.swift */,
-				DED258C72BA78E1600F7064F /* EpisodeDetailsReducer.swift */,
+				DED258C72BA78E1600F7064F /* EpisodeDetailsFeature.swift */,
 			);
 			path = EpisodeDetailsView;
 			sourceTree = "<group>";
@@ -239,12 +239,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DED258B52BA7691800F7064F /* CharactersReducer.swift in Sources */,
+				DED258B52BA7691800F7064F /* CharactersFeature.swift in Sources */,
 				DED258AB2BA7565200F7064F /* Character.swift in Sources */,
 				DED258B02BA75F5400F7064F /* ApiClient.swift in Sources */,
-				DED258C82BA78E1600F7064F /* EpisodeDetailsReducer.swift in Sources */,
+				DED258C82BA78E1600F7064F /* EpisodeDetailsFeature.swift in Sources */,
 				DED258BE2BA77A9100F7064F /* CharacterDetailsView.swift in Sources */,
-				DED258C02BA77A9C00F7064F /* CharacterDetailsReducer.swift in Sources */,
+				DED258C02BA77A9C00F7064F /* CharacterDetailsFeature.swift in Sources */,
 				DED258B32BA7690B00F7064F /* CharactersView.swift in Sources */,
 				DED258AD2BA7565E00F7064F /* Episode.swift in Sources */,
 				DED258972BA754B700F7064F /* RickAndMortyApp.swift in Sources */,
@@ -379,7 +379,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = RickAndMortyApp/RickAndMortyApp.entitlements;
+				CODE_SIGN_ENTITLEMENTS = RickAndMortyApp/Resources/RickAndMortyApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -388,7 +388,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = RickAndMortyApp/Info.plist;
+				INFOPLIST_FILE = RickAndMortyApp/Resources/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -410,7 +410,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = RickAndMortyApp/RickAndMortyApp.entitlements;
+				CODE_SIGN_ENTITLEMENTS = RickAndMortyApp/Resources/RickAndMortyApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -419,7 +419,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = RickAndMortyApp/Info.plist;
+				INFOPLIST_FILE = RickAndMortyApp/Resources/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -1,5 +1,5 @@
 //
-//  CharactersReducer.swift
+//  CharactersFeature.swift
 //  RickAndMortyApp
 //
 //  Created by Roman on 17/03/2024.
@@ -9,26 +9,26 @@ import ComposableArchitecture
 import SwiftUI
 
 @Reducer
-struct CharactersReducer {
+struct CharactersFeature {
     @Dependency(\.apiClient) var apiClient
 
     @ObservableState
     struct State: Equatable {
-        static func == (lhs: CharactersReducer.State, rhs: CharactersReducer.State) -> Bool {
+        static func == (lhs: CharactersFeature.State, rhs: CharactersFeature.State) -> Bool {
             lhs.characters.count == rhs.characters.count
         }
         
         var characters: [Character] = []
-        var path = StackState<CharacterDetailsReducer.State>()
+        var path = StackState<CharacterDetailsFeature.State>()
     }
 
     enum Action {
         case fetchCharacters
         case characterFetched([Character])
-        case path(StackAction<CharacterDetailsReducer.State, CharacterDetailsReducer.Action>)
+        case path(StackAction<CharacterDetailsFeature.State, CharacterDetailsFeature.Action>)
     }
 
-    var body: some ReducerOf<CharactersReducer> {
+    var body: some ReducerOf<CharactersFeature> {
         Reduce { state, action in
             switch action {
             case .fetchCharacters:
@@ -46,7 +46,7 @@ struct CharactersReducer {
             }
         }
         .forEach(\.path, action: \.path) {
-            CharacterDetailsReducer()
+            CharacterDetailsFeature()
         }
     }
 }

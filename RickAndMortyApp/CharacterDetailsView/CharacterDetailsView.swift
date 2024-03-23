@@ -14,7 +14,7 @@ struct CharacterDetailsView: View {
         static let spacing: CGFloat = 10
     }
 
-    @Bindable var store: StoreOf<CharacterDetailsReducer>
+    @Bindable var store: StoreOf<CharacterDetailsFeature>
 
     var body: some View {
             ScrollView {
