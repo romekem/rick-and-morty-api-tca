@@ -14,10 +14,7 @@ struct CharactersFeature {
 
     @ObservableState
     struct State: Equatable {
-        static func == (lhs: CharactersFeature.State, rhs: CharactersFeature.State) -> Bool {
-            lhs.characters.count == rhs.characters.count
-        }
-        
+        @Presents var alert: AlertState<Action.Alert>?
         var characters: [Character] = []
         var path = StackState<CharacterDetailsFeature.State>()
     }
@@ -26,6 +23,12 @@ struct CharactersFeature {
         case fetchCharacters
         case characterFetched([Character])
         case path(StackAction<CharacterDetailsFeature.State, CharacterDetailsFeature.Action>)
+        case alert(PresentationAction<Alert>)
+        case showErrorAlert(Error)
+        
+        enum Alert: Equatable {
+            case confirmError
+        }
     }
 
     var body: some ReducerOf<CharactersFeature> {
@@ -36,17 +39,33 @@ struct CharactersFeature {
                     let characters = try await self.apiClient.fetchAllCharacters()
                     await send(.characterFetched(characters))
                 } catch: { error, send in
-                    print("Error: \(error)")
+                    await send(.showErrorAlert(error))
                 }
             case let .characterFetched(characters):
                 state.characters = characters
                 return .none
             case .path:
                 return .none
+            case let .showErrorAlert(error):
+                state.alert = AlertState(title: {
+                    TextState("Error")
+                }, actions: {
+                    ButtonState(role: .cancel, action: .confirmError ) {
+                                TextState("Ok")
+                              }
+                }, message: {
+                    TextState(error.localizedDescription)
+                })
+                return .none
+            case .alert(.presented(.confirmError)):
+                return .none
+            case .alert:
+                return .none
             }
         }
         .forEach(\.path, action: \.path) {
             CharacterDetailsFeature()
         }
+        .ifLet(\.$alert, action: \.alert)
     }
 }
