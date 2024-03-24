@@ -21,6 +21,12 @@ struct Character: Codable {
     let created: String
 }
 
+extension Character: Equatable {
+    static func == (lhs: Character, rhs: Character) -> Bool {
+        lhs.id == rhs.id
+    }
+}
+
 struct Location: Codable {
     let name: String
     let url: String

@@ -13,7 +13,8 @@ struct EpisodeDetailsFeature {
     @Dependency(\.apiClient) var apiClient
 
     @ObservableState
-    struct State {
+    struct State: Equatable {
+        @Presents var alert: AlertState<Action.Alert>?
         var episodeNumber: Int
         var episode: Episode?
         var characters: [Character] = []
@@ -28,6 +29,12 @@ struct EpisodeDetailsFeature {
         case episodeFetched(Episode?)
         case fetchCharacters([String])
         case charactersFetched([Character])
+        case alert(PresentationAction<Alert>)
+        case showErrorAlert(Error)
+        
+        enum Alert: Equatable {
+            case confirmError
+        }
     }
 
     var body: some ReducerOf<EpisodeDetailsFeature> {
@@ -39,7 +46,7 @@ struct EpisodeDetailsFeature {
                     let episode = try await self.apiClient.fetchEpisodeDetails(episodeNumber)
                     await send(.episodeFetched(episode))
                 } catch: { error, send in
-                    print("Error \(error)")
+                    await send(.showErrorAlert(error))
                 }
 
             case let .episodeFetched(episode):
@@ -54,13 +61,29 @@ struct EpisodeDetailsFeature {
                     let characters = try await self.apiClient.fetchCharacters(urls)
                     await send(.charactersFetched(characters))
                 } catch: { error, send in
-                    print("Error \(error)")
+                    await send(.showErrorAlert(error))
                 }
 
             case let .charactersFetched(characters):
                 state.characters = characters
                 return .none
+            case let .showErrorAlert(error):
+                state.alert = AlertState(title: {
+                    TextState("Error")
+                }, actions: {
+                    ButtonState(role: .cancel, action: .confirmError ) {
+                                TextState("Ok")
+                              }
+                }, message: {
+                    TextState(error.localizedDescription)
+                })
+                return .none
+            case .alert(.presented(.confirmError)):
+                return .none
+            case .alert:
+                return .none
             }
         }
+        .ifLet(\.$alert, action: \.alert)
     }
 }

@@ -12,10 +12,6 @@ import ComposableArchitecture
 struct CharacterDetailsFeature {
     @ObservableState
     struct State: Equatable {
-        static func == (lhs: CharacterDetailsFeature.State, rhs: CharacterDetailsFeature.State) -> Bool {
-            lhs.character.name == rhs.character.name
-        }
-        
         @Presents var episodeDetails: EpisodeDetailsFeature.State?
         var character: Character
         var episodes: [Int] = []
